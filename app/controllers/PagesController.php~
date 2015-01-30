@@ -1,0 +1,10 @@
+<?php
+class PagesController extends BaseController{
+      public function home(){
+       	     $name = "Star Wars Fan Page";
+       	     $ButtonText = "Books";
+	     $ButtonText2 = "Games";
+	     $ButtonText3 = "Movies";
+	     return View::make('hello')->with('name', $name) ->with('ButtonBook', $ButtonText);
+      }
+}
