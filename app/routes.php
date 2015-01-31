@@ -12,4 +12,9 @@ Route::post('createpage', 'PagesController@create');
 Route::post('homepage', 'PagesController@home');
 Route::post('recoverpage', 'PagesController@recover');
 Route::post('mail', 'PagesController@mail');
-
+Route::post('updateUsername', 'PagesController@updateUser');
+Route::post('updateFirst', 'PagesController@updateFirst');
+Route::post('updateLast', 'PagesController@updateLast');
+Route::post('updateEmail', 'PagesController@updateEmail');
+Route::post('updatePass', 'PagesController@updatePassword');
+?>

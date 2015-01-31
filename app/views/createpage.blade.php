@@ -17,11 +17,11 @@
                      <input type="text" name ="Username" id="" class="form-control">
                  </div>
                  <div class="form-group">
-                     <label for="">First Name</label>
+                     <label for="">First Name *</label>
                      <input type="text" name ="Firstname" id="" class="form-control">
                  </div>
                  <div class="form-group">
-                     <label for="">Last Name</label>
+                     <label for="">Last Name *</label>
                      <input type="text" name ="Lastname" id="" class="form-control">
                  </div>
                  <div class="form-group">
