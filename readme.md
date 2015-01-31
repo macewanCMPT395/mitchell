@@ -23,3 +23,11 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+For the CMPT 395 Project one the email service does not currently work, only got working for a set email address couldnt get it to work with the email inputed
+I couldnt figure out how to migrate the data base but if run on the jharvard the mysql data connection will work if you run these commands into the command line
+mysql -u root -p
+then enter "crimson" for password
+mysql> create database Login
+mysql> Create table users (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, username VARCHAR(50), password VARCHAR(100), firstname VARCHAR(50), lastname VARCHAR(50), email VARCHAR(50);
+
