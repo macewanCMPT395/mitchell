@@ -7,8 +7,10 @@ class PagesController extends BaseController{
             return Redirect::to('/');
          }
          else{
-            if (Auth::attempt(Input::only('Username', 'Password'))){
-                return Auth::user();
+            $userdata = array(
+                'username' => Input::get('Username'),
+                'password' => Input::get('Password'));
+            if (Auth::attempt($userdata),true){
        	        $name = "Star Wars Fan Page";
        	        $ButtonText = "Books";
 	            $ButtonText2 = "Games";
@@ -40,10 +42,10 @@ class PagesController extends BaseController{
             return Redirect::back();
         }
         $user = new User;
-        $user->Username = Input::get('Username');
-        $user->Firstname = Input::get('Firstname');
-        $user->Lastname = Input::get('Lastname');
-        $user->Password = Hash::make(Input::get('Password'));
+        $user->username = Input::get('Username');
+        $user->firstname = Input::get('Firstname');
+        $user->lastname = Input::get('Lastname');
+        $user->password = Hash::make(Input::get('Password'));
         $user->email = Input::get('Email');
         $user->save();
         return Redirect::to('/');
@@ -51,7 +53,7 @@ class PagesController extends BaseController{
 
       public function mail(){
         Mail::send('test', array('name' => 'Mitchell'), function($message){
-            $message->to('joshkoens@shaw.ca', 'Joshua Koens')->subject('Test Email tyler says suck a dick');
+            $message->to('joshkoens@shaw.ca', 'Joshua Koens')->subject('Test Email');
         });
         return Redirect::to('/');
       }
