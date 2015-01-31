@@ -7,8 +7,8 @@ class PagesController extends BaseController{
             return Redirect::to('/');
          }
          else{
-            if (Auth::attempt(array('Username' => Input::get('Username'),'Password' => Input::get('Password'))))
-            {
+            if (Auth::attempt(Input::only('Username', 'Password'))){
+                return Auth::user();
        	        $name = "Star Wars Fan Page";
        	        $ButtonText = "Books";
 	            $ButtonText2 = "Games";
@@ -16,7 +16,9 @@ class PagesController extends BaseController{
 	            return View::make('homepage')->with('name', $name) ->with('ButtonBook', $ButtonText) ->with('ButtonGame', $ButtonText2) ->with('ButtonMovie', $ButtonText3);
 	        }
 	        else{
-	            return Redirect::to('/');
+	            return Redirect::to('/')
+	                -> with('message', 'Your username/password combination was incorrect')
+	                -> withInput();
 	        }
 	     }
       }
@@ -46,7 +48,11 @@ class PagesController extends BaseController{
         $user->save();
         return Redirect::to('/');
       }
+
       public function mail(){
+        Mail::send('test', array('name' => 'Mitchell'), function($message){
+            $message->to('joshkoens@shaw.ca', 'Joshua Koens')->subject('Test Email tyler says suck a dick');
+        });
         return Redirect::to('/');
       }
 }
